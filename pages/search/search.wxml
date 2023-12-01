@@ -1,0 +1,50 @@
+<view class="header">
+    <l-search-bar
+            bind:lincancel="onCancel"
+            bind:linconfirm="onSearch"
+            l-class="input" max-length="9" bg-color="#f1f1f1"  placeholder="请输入搜索的主持老师的姓名"
+    ></l-search-bar>
+</view>
+
+<view class="container">
+    <view wx:if="{{!search}}">
+        <view wx:if="{{historyTags.length !== 0}}" class="history-container">
+            <view class="history-title">
+                <view class="slide"></view>
+                <text>历史搜索</text>
+                <view style="flex:1"></view>
+                <view bind:tap="onDeleteHistory">
+                    <l-icon name="delete" color="#999"></l-icon>
+                </view>
+            </view>
+            <view class="history-tags">
+                <block wx:for="{{historyTags}}" wx:key="index">
+                    <l-tag  bind:lintap="onSearch"
+                            l-class="tag" name="{{item}}">{{item}}</l-tag>
+                </block>
+            </view>
+        </view>
+        <view  class="history-container">
+            <view  class="history-title">
+                <view class="slide"></view>
+                <text>热门搜索</text>
+                <view style="flex:1"></view>
+            </view>
+            <view class="history-tags">
+                <block wx:for="{{hotTags}}" wx:key="index">
+                    <l-tag  bind:lintap="onSearch"
+                            select="{{item.highlight}}" l-select-class="tag-selected" l-class="tag" name="{{item.title}}">{{item.title}}</l-tag>
+                </block>
+            </view>
+        </view>
+    </view>
+    <view wx:else>
+        <block wx:for="{{items}}">
+            <s-spu-preview-r data="{{item}}">
+
+            </s-spu-preview-r>
+        </block>
+    </view>
+
+    <l-loading></l-loading>
+</view>

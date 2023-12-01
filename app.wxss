@@ -1,0 +1,26 @@
+page{
+   background-color: #f5f5f5;
+  /*background-color: #ffffff;*/
+}
+
+/* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+@font-face {
+  font-family: 'shengmei';  /* Project id 4336874 */
+  src: url('//at.alicdn.com/t/c/font_4336874_plwcoc8gsos.woff2?t=1701351801890') format('woff2'),
+  url('//at.alicdn.com/t/c/font_4336874_plwcoc8gsos.woff?t=1701351801890') format('woff'),
+  url('//at.alicdn.com/t/c/font_4336874_plwcoc8gsos.ttf?t=1701351801890') format('truetype');
+}
+
+.sleeve{
+  font-family: shengmei, serif !important;
+  color:#157658 !important;
+}
+.l-icon-home:before{
+  content: '\e600'
+}
+.l-icon-radio:before{
+  content:''
+}
+.l-icon-check:before{
+  content: '\e61c';
+}

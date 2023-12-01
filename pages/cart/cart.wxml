@@ -1,0 +1,30 @@
+<view class="container" wx:if="{{!isEmpty}}">
+    <block wx:for="{{cartItems}}">
+        <s-cart-item cartItem="{{item}}" bind:overflow="onOverflow" bind:itemdelete="onDeleteItem"
+        ></s-cart-item>
+    </block>
+</view>
+<view wx:if="{{isEmpty}}">
+    <s-empty showBtn show type="cart" text="it is empty" button-text="去逛逛" l-class="empty-container"></s-empty>
+</view>
+
+<view wx:if="{{!isEmpty}}" class="total-container">
+    <view class="data-container">
+        <view class="checkbox-container">
+            <s-checkbox bind:check="onCheckAll" checked="{{}}"></s-checkbox>
+            <text>全选</text>
+        </view>
+        <view class="price-container">
+            <text>合计</text>
+            <l-price
+                value="{{totalPrice}}"
+                color="#157658"
+                count-size="32"
+                unit-size="32"
+            ></l-price>
+        </view>
+    </view>
+    <view bind:tap="onSettle"  class="settlement-btn {{totalSkuCount}}">
+        <text>结算 ( {{totalSkuCount}} )</text>
+    </view>
+</view>

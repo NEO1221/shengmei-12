@@ -1,0 +1,44 @@
+<!--pages/home/home.wxml-->
+
+
+<l-loadmore show type="{{loadingType}}" end-text= "- 声魅团队 -">
+
+  <view slot="content">
+  <image class = "top-theme" src="{{themeA.entrance_img}}"></image>
+  
+  <swiper   class="swiper"
+            indicator-dots
+            indicator-active-color="#157658"
+            autoplay
+            circular>
+    <block wx:for="{{bannerB.items}}" wx:key="key">
+    <swiper-item>
+      <image class="swiper" src = "{{item.img}}"></image>
+    </swiper-item>
+    </block>
+  </swiper>
+
+  <s-category-grid grid="{{grid}}"></s-category-grid>
+
+  <view><image class="activity" src="{{activityD.entrance_img}}" alt=""/> </view>
+
+  <s-spu-scroll
+              l-class="l-spu-class"
+              theme = "{{themeE}}"
+              spuList = "{{themeESpu}}"
+  ></s-spu-scroll>
+
+  <image class="quality" src="{{themeF.entrance_img}} "></image>
+
+  <s-hot-list banner="{{bannerG}}"></s-hot-list>
+
+  <image class="fashion" src="{{themeH.entrance_img}}"></image>
+  
+  <view class="spu-bottom">
+    <image class="title-spu-bottom" src="{{themeZ.entrance_img}}"></image>
+    <l-water-flow generic:l-water-flow-item="s-spu-preview"></l-water-flow>
+  </view>
+
+
+  </view>
+</l-loadmore>

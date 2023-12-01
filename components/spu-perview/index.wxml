@@ -1,0 +1,26 @@
+
+<wxs src="../../wxs/price.wxs" module="p"></wxs>
+<!-- 动态宽高比的另一种方法：mode="widthFix"  -->
+<view class="container" bind:tap="onItemTap" data-pid="{{data.id}}">
+  <image class="img"  
+  bind:load="onImgLoad" style="height:{{h}}rpx; width:{{w}}rpx"
+  
+  src="{{data.img}}"></image>
+  <view class='content-container'>
+    <text class="title">{{data.title}}</text>
+    <view class="tags">
+      <block wx:for="{{tags}}">
+        <l-tag size="super-mini" l-class="l-tag">{{item}}</l-tag>
+      </block>
+    </view>
+    <view class="price-row">
+        <l-price value-size="28" unit-size="20" autofix color="#157658"
+        value="{{p.mainPrice(data.price,data.discount_price).price}}"></l-price>
+        <l-price l-class="discount-price" value-size="26" unit-size="20" autofix color="#999"
+        wx:if="{{p.slashedPrice(data.price,data.discount_price).display}}"
+                  deleted
+                  value="{{p.slashedPrice(data.price,data.discount_price).price}}"></l-price>
+    </view>
+    <text class="subtitle">{{data.subtitle}}</text>
+  </view>
+</view>
